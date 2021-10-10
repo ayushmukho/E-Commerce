@@ -150,7 +150,7 @@ const Product = () => {
   };
 
   const handelClick = () => {
-    dispatch(addProduct({ product, quantity, price: product.price * quantity }));
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
