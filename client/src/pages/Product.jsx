@@ -8,6 +8,8 @@ import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div``;
 
@@ -120,6 +122,7 @@ const Button = styled.button`
 
 const Product = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -147,8 +150,8 @@ const Product = () => {
   };
 
   const handelClick = () => {
-    
-  }
+    dispatch(addProduct({ product, quantity, price: product.price * quantity }));
+  };
 
   return (
     <Container>

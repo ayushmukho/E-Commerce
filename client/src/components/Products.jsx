@@ -59,8 +59,6 @@ const Products = ({ cat, filters, sort }) => {
       );
   }, [sort]);
 
-  console.log("filteredProducts", filteredProducts);
-
   return (
     <Container>
       {cat
